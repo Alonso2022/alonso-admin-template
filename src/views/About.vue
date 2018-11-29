@@ -1,5 +1,12 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+    <div style="height:1000px">
+ABSCD
+    </div>
 </template>
+
+<script>
+
+</script>
+<style scoped>
+
+</style>
