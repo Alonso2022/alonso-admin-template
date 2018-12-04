@@ -1,4 +1,5 @@
 import Cookies from 'js-cookie'
+import { setStore, getStore, removeStore } from '@/utils/storage'
 const app = {
   state: {
     sidebar: {
@@ -7,7 +8,11 @@ const app = {
     },
     device: 'desktop',
     language: Cookies.get('language') || process.env.VUE_APP_LANG,
-    size: Cookies.get('size') || 'medium'
+    size: Cookies.get('size') || 'medium',
+    lock: {
+      isLock: getStore({ name: 'isLock' }) || false,
+      pwd: getStore({ name: 'pwd' }) || ''
+    }
   },
   mutations: {
     TOGGLE_SIDEBAR: state => {
@@ -34,6 +39,33 @@ const app = {
     SET_SIZE: (state, size) => {
       state.size = size
       Cookies.set('size', size)
+    },
+
+    SET_LOCK: state => {
+      state.lock.isLock = true
+      setStore({
+        name: 'isLock',
+        content: state.lock.isLock,
+        type: 'session'
+      })
+    },
+    SET_LOCK_PASSWD: (state, pwd) => {
+      state.lock.pwd = pwd
+      setStore({
+        name: 'pwd',
+        content: state.lock.pwd,
+        type: 'session'
+      })
+    },
+    CLEAR_LOCK: state => {
+      state.lock.isLock = false
+      state.lock.pwd = ''
+      removeStore({
+        name: 'pwd'
+      })
+      removeStore({
+        name: 'isLock'
+      })
     }
   },
   actions: {
@@ -52,6 +84,7 @@ const app = {
     setSize({ commit }, size) {
       commit('SET_SIZE', size)
     }
+
   }
 }
 

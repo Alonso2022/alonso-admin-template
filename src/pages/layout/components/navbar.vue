@@ -8,6 +8,9 @@
 
       <template v-if="device!=='mobile'">
         <error-log class="errLog-container right-menu-item"/>
+        <el-tooltip :content="$t('navbar.lockScreen')" effect="dark" placement="bottom">
+          <LockScreen class="screenfull right-menu-item" />
+        </el-tooltip>
 
         <el-tooltip :content="isFullscreen?$t('navbar.exitScreenfull'):$t('navbar.screenfull')" effect="dark" placement="bottom">
           <screenfull class="screenfull right-menu-item" @listenToEvent="setFullScreen" />
@@ -56,6 +59,7 @@ import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/breadcrumb'
 import Hamburger from '@/components/hamburger'
 import ErrorLog from '@/components/errorLog'
+import LockScreen from '@/components/lockScreen'
 import Screenfull from '@/components/screenfull'
 import SizeSelect from '@/components/sizeSelect'
 import LangSelect from '@/components/langSelect'
@@ -66,6 +70,7 @@ export default {
     Breadcrumb,
     Hamburger,
     ErrorLog,
+    LockScreen,
     Screenfull,
     SizeSelect,
     LangSelect,

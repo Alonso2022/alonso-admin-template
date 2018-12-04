@@ -26,7 +26,7 @@ import Layout from '@/pages/layout/index'
     pathToRegexpOptions?: Object; // 编译正则的选项
 
     // 以上为vue官方属性
-    // 以下为 alonso-admin 新增属性
+    // 以下为 alonso-admin-template 新增属性
     hidden: true                   // default: false, 如果设置为true 将不在菜单中显示
     alwaysShow: true               // default: false 如果设置为true 不管有几个子路由，均显示父级菜单，反之设置为false,当只有一项子路由时不显示父级菜单
     meta : {
@@ -131,11 +131,11 @@ export const asyncRouterMap = [
     },
     children: [
       {
-        path: 'github',
-        name: 'github',
+        path: 'gitee',
+        name: 'gitee',
         component: () => import(/* webpackChunkName: "thirdSite" */ '@/views/iframe/index'),
         meta: {
-          src: 'http://www.github.com', title: 'github'
+          src: 'http://www.gitee.com', title: 'gitee'
         }
       },
       {
@@ -164,5 +164,6 @@ export const asyncRouterMap = [
       }
     ]
   },
+
   { path: '*', redirect: '/404', hidden: true }
 ]

@@ -1,35 +1,35 @@
+
 <template>
   <div v-if="!item.hidden&&item.children" class="menu-wrapper">
 
     <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
-      <app-link :to="resolvePath(onlyOneChild)">
-        <el-menu-item :index="resolvePath(onlyOneChild)" :class="{'submenu-title-noDropdown':!isNest}">
+      <app-link :to="resolvePath(onlyOneChild.path)">
+        <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
           <item v-if="onlyOneChild.meta" :icon="onlyOneChild.meta.icon||item.meta.icon" :title="generateTitle(onlyOneChild.meta.title)" />
         </el-menu-item>
       </app-link>
     </template>
 
-    <el-submenu v-else ref="submenu" :index="resolvePath(item)">
+    <el-submenu v-else ref="submenu" :index="resolvePath(item.path)">
       <template slot="title">
         <item v-if="item.meta" :icon="item.meta.icon" :title="generateTitle(item.meta.title)" />
       </template>
+      <!-- eslint-disable vue/no-use-v-if-with-v-for -->
+      <template v-for="child in item.children" v-if="!child.hidden" >
 
-      <template v-for="child in item.children">
-        <template v-if="!child.hidden" >
         <sidebar-item
           v-if="child.children&&child.children.length>0"
           :is-nest="true"
           :item="child"
           :key="child.path"
-          :base-path="resolvePath(child)"
+          :base-path="resolvePath(child.path)"
           class="nest-menu" />
 
-        <app-link v-else :to="resolvePath(child)"   :key="child.name">
-          <el-menu-item :index="resolvePath(child)">
+        <app-link v-else :to="resolvePath(child.path)" :key="child.name">
+          <el-menu-item :index="resolvePath(child.path)">
             <item v-if="child.meta" :icon="child.meta.icon" :title="generateTitle(child.meta.title)" />
           </el-menu-item>
         </app-link>
-       </template>
       </template>
     </el-submenu>
 
@@ -93,8 +93,7 @@ export default {
 
       return false
     },
-    resolvePath(item) {
-      const routePath = item.path
+    resolvePath(routePath) {
       if (this.isExternalLink(routePath)) {
         return routePath
       }

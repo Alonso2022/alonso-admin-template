@@ -94,7 +94,9 @@ export const cleanArray = (actual) => {
   }
   return newArray
 }
-
+/**
+ *  json对象转换成URL参数形式
+ */
 export const param = (json) => {
   if (!json) return ''
   return cleanArray(
@@ -105,6 +107,9 @@ export const param = (json) => {
   ).join('&')
 }
 
+/**
+ *  url参数转换成json对象
+ */
 export const param2Obj = (url) => {
   const search = url.split('?')[1]
   if (!search) {
@@ -118,4 +123,12 @@ export const param2Obj = (url) => {
         .replace(/=/g, '":"') +
       '"}'
   )
+}
+
+/**
+ *  eval 替代函数
+ */
+export const evil = (fn) => {
+  var Fn = Function // 一个变量指向Function，防止有些前端编译工具报错
+  return new Fn('return ' + fn)()
 }

@@ -3,6 +3,7 @@
     :class="classObj"
     class="app-wrapper"
   >
+    <lock-layer v-if="lock.isLock" />
     <div
       v-if="device==='mobile'&&sidebar.opened"
       class="drawer-bg"
@@ -16,20 +17,21 @@
         <app-main />
       </div>
     </el-scrollbar>
+
   </div>
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain, TagsView } from './components'
+import { Navbar, Sidebar, AppMain, TagsView, LockLayer } from './components'
 import ResizeMixin from './mixin/resizeHandler'
-
 export default {
   name: 'Layout',
   components: {
     Navbar,
     Sidebar,
     AppMain,
-    TagsView
+    TagsView,
+    LockLayer
   },
   mixins: [ResizeMixin],
   computed: {
@@ -46,6 +48,9 @@ export default {
         withoutAnimation: this.sidebar.withoutAnimation,
         mobile: this.device === 'mobile'
       }
+    },
+    lock() {
+      return this.$store.state.app.lock
     }
   },
   methods: {

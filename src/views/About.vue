@@ -1,5 +1,5 @@
 <template>
-    <div style="height:1000px">
+    <div >
 ABSCD
     </div>
 </template>
