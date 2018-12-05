@@ -44,11 +44,11 @@ export const constantRouterMap = [
     children: [
       {
         path: '/redirect/:path*',
-        component: () => import('@/views/redirect/index')
+        component: () => import('@/pages/redirect/index')
       }
     ]
   },
-  { path: '/login', component: () => import('@/views/login/index'), hidden: true },
+  { path: '/login', component: () => import('@/pages/login/index'), hidden: true },
   {
     path: '/404',
     component: () => import('@/pages/errorPage/404'),
@@ -65,7 +65,7 @@ export const constantRouterMap = [
       {
         path: 'index',
         name: 'ifrmae',
-        component: () => import(/* webpackChunkName: "views" */ '@/views/iframe/index'),
+        component: () => import(/* webpackChunkName: "views" */ '@/pages/iframe/index'),
         meta: {
           title: 'ifrmae',
           icon: 'setting-selected'

@@ -35,6 +35,6 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-var env = process.env.NODE_ENV
-var base_api = process.env.VUE_APP_BASE_API
-console.log(env, base_api)
+// var env = process.env.NODE_ENV
+// var base_api = process.env.VUE_APP_BASE_API
+// console.log(env, base_api)
