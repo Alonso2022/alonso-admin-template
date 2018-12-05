@@ -5,7 +5,7 @@ class="login-container"
     <div class="login-info text-white animated fadeInLeft" >
       <h2 class="login-info-title">{{ $t('system.title') }}</h2>
       <ul class="login-info-list">
-        <li class="login-info-item">{{device}}
+        <li class="login-info-item">
           <i class="el-icon-check"></i>&nbsp;{{ $t('login.content.content1') }}
         </li>
         <li class="login-info-item">

@@ -104,7 +104,7 @@ export const asyncRouterMap = [
     children: [{
       path: 'index',
       name: 'about',
-      component: () => import(/* webpackChunkName: "views" */ '@/views/about'),
+      component: () => import(/* webpackChunkName: "views" */ '@/views/About'),
       meta: { title: 'about', icon: 'about', noCache: true, roles: ['admin'] }
     }]
   },
