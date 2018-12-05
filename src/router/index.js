@@ -133,7 +133,7 @@ export const asyncRouterMap = [
       {
         path: 'gitee',
         name: 'gitee',
-        component: () => import(/* webpackChunkName: "thirdSite" */ '@/views/iframe/index'),
+        component: () => import(/* webpackChunkName: "thirdSite" */ '@/pages/iframe/index'),
         meta: {
           src: 'http://www.gitee.com', title: 'gitee'
         }
@@ -141,7 +141,7 @@ export const asyncRouterMap = [
       {
         path: '163',
         name: '163',
-        component: () => import(/* webpackChunkName: "thirdSite" */ '@/views/iframe/index'),
+        component: () => import(/* webpackChunkName: "thirdSite" */ '@/pages/iframe/index'),
         meta: {
           src: 'http://www.163.com', title: 'wangyi'
         }
@@ -149,7 +149,7 @@ export const asyncRouterMap = [
       {
         path: 'baidu',
         name: 'baidu',
-        component: () => import(/* webpackChunkName: "thirdSite" */ '@/views/iframe/index'),
+        component: () => import(/* webpackChunkName: "thirdSite" */ '@/pages/iframe/index'),
         meta: {
           src: 'http://www.baidu.com', title: 'baidu'
         }
@@ -157,7 +157,7 @@ export const asyncRouterMap = [
       {
         path: 'jingdong',
         name: 'jingdong',
-        component: () => import(/* webpackChunkName: "thirdSite" */ '@/views/iframe/index'),
+        component: () => import(/* webpackChunkName: "thirdSite" */ '@/pages/iframe/index'),
         meta: {
           src: 'http://www.jd.com', title: 'jingdong'
         }
