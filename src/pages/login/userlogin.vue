@@ -113,6 +113,7 @@ export default {
           this.loading = true
           this.$store.dispatch('LoginByUsername', this.loginForm).then(() => {
             this.loading = false
+            this.$store.commit('CLEAR_LOCK')
             this.$router.push({ path: this.redirect || '/' })
           }).catch(() => {
             this.loading = false
