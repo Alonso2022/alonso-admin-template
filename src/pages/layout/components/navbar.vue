@@ -50,6 +50,8 @@
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
+
+      <setting-panl class="setting-container" />
     </div>
   </div>
 </template>
@@ -65,6 +67,8 @@ import SizeSelect from '@/components/sizeSelect'
 import LangSelect from '@/components/langSelect'
 import ThemePicker from '@/components/themePicker'
 
+import SettingPanl from './setting'
+
 export default {
   components: {
     Breadcrumb,
@@ -74,7 +78,8 @@ export default {
     Screenfull,
     SizeSelect,
     LangSelect,
-    ThemePicker
+    ThemePicker,
+    SettingPanl
   },
   data() {
     return {
@@ -154,7 +159,7 @@ export default {
     }
     .avatar-container {
       vertical-align: top;
-      margin-right: 20px;
+      // margin-right: 20px;
       .el-dropdown-link{
         cursor: pointer;
         .user-avatar {
@@ -167,6 +172,9 @@ export default {
           vertical-align: middle;
         }
       }
+    }
+    .setting-container{
+      margin-right: 10px;
     }
   }
 }

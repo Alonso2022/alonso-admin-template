@@ -7,7 +7,7 @@ export const users = [
     avatar: 'avatar.jpg',
     token: 'admin-header.admin-payload.admin-signature',
     roles: ['admin', 'editor'],
-    permissions: ['0001', '0002']
+    permissions: ['10001', '10002']
   },
   {
     username: 'alonso',
@@ -16,7 +16,7 @@ export const users = [
     avatar: 'avatar.jpg',
     token: 'alonso-header.alonso-payload.alonso-signature',
     roles: ['editor'],
-    permissions: ['0001']
+    permissions: ['10001']
   }
 ]
 
@@ -40,7 +40,7 @@ function login(reqData) {
     }
   } else {
     result = {
-      resCode: '001',
+      resCode: '30001',
       resDesc: '没有找到指定用户，用户不存在',
       resData: null
     }
@@ -74,7 +74,7 @@ function getUserInfo(reqData) {
     }
   } else {
     result = {
-      resCode: '001',
+      resCode: '30002',
       resDesc: '用户登录过期，需重新登录',
       resData: null
     }

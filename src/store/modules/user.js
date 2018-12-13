@@ -18,6 +18,8 @@ const user = {
     introduction: '',
     roles: [],
     setting: {
+      displaySettingPanl: false,
+      demonstration: false,
       articlePlatform: []
     }
   },
@@ -34,6 +36,12 @@ const user = {
     },
     SET_SETTING: (state, setting) => {
       state.setting = setting
+    },
+    SET_SETTING_PANL: (state, isDisplay) => {
+      state.setting.displaySettingPanl = isDisplay
+    },
+    SET_DEMONSTRATION: (state, demonstration) => {
+      state.setting.demonstration = demonstration
     },
     SET_STATUS: (state, status) => {
       state.status = status
