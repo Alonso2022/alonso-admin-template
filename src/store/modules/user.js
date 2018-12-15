@@ -19,7 +19,7 @@ const user = {
     roles: [],
     setting: {
       displaySettingPanl: false,
-      demonstration: false,
+      demonstration: false, // 演示模式
       articlePlatform: []
     }
   },
